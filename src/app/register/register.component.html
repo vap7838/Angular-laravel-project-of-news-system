@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<body>
+    <div class="w3-container w3-padding-32">
+      
+            <form #userRegForm='ngForm' (ngSubmit)="userRegForm.form.valid && register(userRegForm.value)" novalidate>
+                    <h2 class="text-center">Users Registration</h2>
+                      
+                    <div class="form-group">
+                                      <input type="text" class="form-control" placeholder="User Name" name="name" [(ngModel)]="name" #username="ngModel" [ngClass]="{ 'is-invalid': userRegForm.submitted && username.invalid }" required>
+                    <div *ngIf="userRegForm.submitted && username.invalid" class="invalid-feedback">
+                    <div *ngIf="username.errors.required" class="alert-danger">Name is required</div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                                      <input type="text" class="form-control" id="email" placeholder="email" name="email" [(ngModel)]="email" #youremail="ngModel" [ngClass]="{ 'is-invalid': userRegForm.submitted && youremail.invalid }" required> 
+                    <div *ngIf="userRegForm.submitted && youremail.invalid" class="invalid-feedback">
+                    <div *ngIf="youremail.errors.required" class="alert-danger">Email is required</div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                                      <input type="text" class="form-control" id="password" placeholder="Password" name="password" [(ngModel)]="password" #pass="ngModel" [ngClass]="{ 'is-invalid': userRegForm.submitted && pass.invalid }" required>  
+                    <div *ngIf="userRegForm.submitted && pass.invalid" class="invalid-feedback">
+                    <div *ngIf="pass.errors.required" class="alert-danger">Password is required</div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                                      <input type="text" class="form-control" id="conpassword" placeholder="Confirm Password" name="password_confirmation" [(ngModel)]="password_confirmation" #conpass="ngModel" [ngClass]="{ 'is-invalid': userRegForm.submitted && conpass.invalid }" required validateEqual='password'>  
+                    <div *ngIf="userRegForm.submitted && conpass.invalid" class="invalid-feedback">
+                    <div *ngIf="conpass.errors.required" class="alert-danger">Confirm Password is required</div>
+                    <div *ngIf="conpass.errors.notEqual" class="alert-danger">Password does not match</div>
+                    </div>
+                    </div>
+                      
+                    <div class="align-center">
+                                      <button type="submit" class="btn btn-primary  " id="registeruser"  >Register</button>
+                                  </div>
+                    </form>
+                    
+        </div>
+        
+</body>
+
+

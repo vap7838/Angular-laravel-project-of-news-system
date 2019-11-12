@@ -1,0 +1,53 @@
+<app-header></app-header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>Document</title>
+</head>
+<body>
+    <div class="w3-container w3-padding-32">
+        <div class="">
+        <div class="">
+        <form #userRegForm='ngForm' (ngSubmit)="userRegForm.form.valid && News(userRegForm.value)" novalidate>
+        <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Create News</h2>
+          
+        <div class="form-group">
+                          <input type="text" class="w3-input w3-section w3-border" placeholder="UserName" name="user_id" [(ngModel)]="user_id" #username="ngModel" [ngClass]="{ 'is-invalid': userRegForm.submitted && username.invalid }" required>
+        <div *ngIf="userRegForm.submitted && username.invalid" class="invalid-feedback">
+        <div *ngIf="username.errors.required" class="alert-danger">Name is required</div>
+        </div>
+        </div>
+        <div class="form-group">
+                          <input type="text" class="w3-input w3-section w3-border" id="category_id" placeholder="CategoryName" name="category_id" [(ngModel)]="category_id" #category="ngModel" [ngClass]="{ 'is-invalid': userRegForm.submitted && category.invalid }" required> 
+        <div *ngIf="userRegForm.submitted && category.invalid" class="invalid-feedback">
+        <div *ngIf="category.errors.required" class="alert-danger">Email is required</div>
+        </div>
+        </div>
+        <div class="form-group">
+                          <input type="text" class="w3-input w3-section w3-border" id="news_title" placeholder="NewsTitle" name="news_title" [(ngModel)]="news_title" #newst="ngModel" [ngClass]="{ 'is-invalid': userRegForm.submitted && newst.invalid }" required>  
+        <div *ngIf="userRegForm.submitted && newst.invalid" class="invalid-feedback">
+        <div *ngIf="newst.errors.required" class="alert-danger">Password is required</div>
+        </div>
+        </div>
+        <div class="form-group">
+                          <input type="text" class="w3-input w3-section w3-border" id="description" placeholder="Description" name="description" [(ngModel)]="description" #disc="ngModel" [ngClass]="{ 'is-invalid': userRegForm.submitted && disc.invalid }" required>  
+        <div *ngIf="userRegForm.submitted && disc.invalid" class="invalid-feedback">
+        <div *ngIf="disc.errors.required" class="alert-danger">Confirm Password is required</div>
+        <!-- <div *ngIf="disc.errors.notEqual" class="alert-danger">Password does not match</div> -->
+        </div>
+        </div>
+          
+        <div class="align-center">
+                          <button type="submit" class="btn btn-primary" id="registeruser"  >Submit</button>
+                      </div>
+        </form>
+        </div>
+        </div>
+        </div>
+</body>
+</html>
+

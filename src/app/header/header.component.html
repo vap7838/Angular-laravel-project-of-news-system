@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+          <a href="#home" class="w3-bar-item w3-button"><b>BR</b> Architects</a>
+          <!-- Float links to the right. Hide them on small screens -->
+          <div *ngIf="access_token !==  null"  class="w3-right w3-hide-small">
+            <a href="#projects" class="w3-bar-item w3-button">Projects</a>
+            <a href="/newsdisplay" class="w3-bar-item w3-button">News</a>
+            <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+            <a  (click)="onClick(logout)" class="w3-bar-item w3-button">logout</a>
+          </div>
+          <div *ngIf="access_token ==  null" class="w3-right w3-hide-small">
+            <a href="#projects" class="w3-bar-item w3-button">Projects</a>
+            <a href="/newsdisplay" class="w3-bar-item w3-button">News</a>
+            <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+            <a  href="/login" class="w3-bar-item w3-button">login</a>
+            <a  href="/register" class="w3-bar-item w3-button">Register</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Header -->
+      <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+      
+        <div class="w3-display-middle w3-margin-top w3-center">
+          <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>BR</b></span> <span class="w3-hide-small w3-text-light-grey">Architects</span></h1>
+        </div>
+      </header>
+</body>
+</html>
